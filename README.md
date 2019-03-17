@@ -48,3 +48,5 @@ Agent select next action based on Epsilon Greedy. At probability epsilon, agent 
 
 ## Agent Results
 This is plot of rewards when training. At Episode 271, agent performance met the criteria and stopped training. (mean scores of last 100 episodes is above +13). 
+
+![My image](MaxSinclair.github.com/DRLND_Navigation_Agent/perfomance_plot.jpg)
