@@ -15,22 +15,38 @@ The state space has 37 dimensions and contains the agent's velocity, along with 
 
 The task is episodic, and in order to solve the environment, your agent must get an average score of +13 over 100 consecutive episodes.
 
+### Getting Started
 
+1. Download the environment from one of the links below.  You need only select the environment that matches your operating system:
+    - Linux: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Linux.zip)
+    - Mac OSX: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana.app.zip)
+    - Windows (32-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Windows_x86.zip)
+    - Windows (64-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Windows_x86_64.zip)
+    
+    (_For Windows users_) Check out [this link](https://support.microsoft.com/en-us/help/827218/how-to-determine-whether-a-computer-is-running-a-32-bit-version-or-64) if you need help with determining if your computer is running a 32-bit version or 64-bit version of the Windows operating system.
+
+    (_For AWS_) If you'd like to train the agent on AWS (and have not [enabled a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md)), then please use [this link](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Linux_NoVis.zip) to obtain the environment.
+
+2. Place the file in the DRLND GitHub repository, in the `p1_navigation/` folder, and unzip (or decompress) the file. 
+
+### Instructions
+
+Follow the instructions in `Navigation.ipynb` to get started with training your own agent!  
 The objective is to maximize reward through episodes of 1000 time steps.
 
 ## Learning Algorithm
 Source code of learning algorithm is placed in main/ directory. The algorithm is composed mainly of next three parts.
 
 #### Double DQN
-As reinforcement learning algorithm, I implemented Double DQN (DDQN). Because Double DQN overcome the tendency which DQN overestimates the reward of action, DDQN can achieve better performance then DQN on average (but I don't have enough time to check it..)
-
-Inside DDQN, I used two layer neural network as Q-Value Estimator. Hidden layers are composed of State -> 64 -> LeakyReLU -> 64 -> LinearReLU -> Action
+The reinforcement learning algorithm Double DQN (DDQN) is implemented. Hidden layers are composed of State -> 64 -> LeakyReLU -> 64 -> LinearReLU -> Action. The optimizer is ADAM. 
 
 #### Experience Replay
-Similarly to original DQN paper, I implemented Experience Replay. In this technique, D-DQN model is trained by mini-batch from replay buffer.
+Experience Replay is also implemented. In this technique, D-DQN model is trained by mini-batch from replay buffer.
 
 #### Epsilon Greedy
-Agent select next action based on Epsilon Greedy. At probability epsilon, agent select at random from action space. The value of epsilon is set 0.95, and decrease gradually with time until 0.000001.
+Agent select next action based on Epsilon Greedy. At probability epsilon, agent select at random from action space. The value of epsilon is set 1, and decrease at a rate of epsilon_decay = 0.95 with time until 0.000001.
 
 ## Agent Results
-This is plot of rewards when training. At Episode 524, agent performance met the criteria and stopped training. (mean scores of last 100 episodes is above +13)
+This is plot of rewards when training. At Episode 271, agent performance met the criteria and stopped training. (mean scores of last 100 episodes is above +13). 
+
+![My image](MaxSinclair.github.com/DRLND_Navigation_Agent/perfomance_plot.jpg)
