@@ -38,15 +38,13 @@ The objective is to maximize reward through episodes of 1000 time steps.
 Source code of learning algorithm is placed in main/ directory. The algorithm is composed mainly of next three parts.
 
 #### Double DQN
-As reinforcement learning algorithm, I implemented Double DQN (DDQN). Because Double DQN overcome the tendency which DQN overestimates the reward of action, DDQN can achieve better performance then DQN on average (but I don't have enough time to check it..)
-
-Inside DDQN, I used two layer neural network as Q-Value Estimator. Hidden layers are composed of State -> 64 -> LeakyReLU -> 64 -> LinearReLU -> Action
+The reinforcement learning algorithm Double DQN (DDQN) is implemented. Hidden layers are composed of State -> 64 -> LeakyReLU -> 64 -> LinearReLU -> Action. The optimizer is ADAM. 
 
 #### Experience Replay
-Similarly to original DQN paper, I implemented Experience Replay. In this technique, D-DQN model is trained by mini-batch from replay buffer.
+Experience Replay is also implemented. In this technique, D-DQN model is trained by mini-batch from replay buffer.
 
 #### Epsilon Greedy
-Agent select next action based on Epsilon Greedy. At probability epsilon, agent select at random from action space. The value of epsilon is set 0.95, and decrease gradually with time until 0.000001.
+Agent select next action based on Epsilon Greedy. At probability epsilon, agent select at random from action space. The value of epsilon is set 1, and decrease at a rate of epsilon_decay = 0.95 with time until 0.000001.
 
 ## Agent Results
-This is plot of rewards when training. At Episode 524, agent performance met the criteria and stopped training. (mean scores of last 100 episodes is above +13)
+This is plot of rewards when training. At Episode 271, agent performance met the criteria and stopped training. (mean scores of last 100 episodes is above +13). 
