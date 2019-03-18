@@ -40,7 +40,7 @@ The following libraries have to be installed in order to run the jupyter noteboo
 * random
 * torch
 * numpy 
-* matplotlib.pyplot
+* matplotlib
 * UnityEnvironment
 * sys
 
