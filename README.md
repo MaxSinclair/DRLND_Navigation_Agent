@@ -33,3 +33,16 @@ The task is episodic, and in order to solve the environment, your agent must get
 
 Follow the instructions in `Navigation.ipynb` to get started with training your own agent!  
 The objective is to maximize reward through episodes of 1000 time steps.
+
+###Dependencies
+The following libraries have to be installed in order to run the jupyter notebook succesfully
+
+* *random
+*torch
+*numpy 
+*matplotlib.pyplot
+*UnityEnvironment
+*sys*
+
+
+
