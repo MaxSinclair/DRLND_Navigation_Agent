@@ -117,6 +117,7 @@ class Agent():
             target_param.data.copy_(tau*local_param.data + (1.0-tau)*target_param.data)
 
 
+
 class ReplayBuffer:
     """Fixed-size buffer to store experience tuples."""
 
@@ -136,10 +137,12 @@ class ReplayBuffer:
         self.experience = namedtuple("Experience", field_names=["state", "action", "reward", "next_state", "done"])
         self.seed = random.seed(seed)
     
+    
     def add(self, state, action, reward, next_state, done):
         """Add a new experience to memory."""
         e = self.experience(state, action, reward, next_state, done)
         self.memory.append(e)
+    
     
     def sample(self):
         """Randomly sample a batch of experiences from memory."""
